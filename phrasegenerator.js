@@ -39,7 +39,7 @@ const hitResultTable = [
     { number: 27, result: "Arm severed, game master will determine which" },
     { number: 28, result: "Leg severed, game master will determine which one" },
     { number: 29, result: "Spinal cord severed, crippled for life" },
-    { number: 30, result: "Instant death, skill has been crushed" },
+    { number: 30, result: "Instant death, skull has been crushed, DM says Ha, ha, ha" },
 ]
 
 function getRandomInt(max) {
