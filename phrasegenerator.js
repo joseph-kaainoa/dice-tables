@@ -3,8 +3,14 @@
 const CHAR_LIMIT_LOWER = 4;
 const CHAR_LIMIT_UPPER = 8;
 
-document.getElementById("generateButton").addEventListener("click", () => {
-    document.getElementById("outputPhrase").value = generateHitResult();
+document.getElementById("generateHitResult").addEventListener("click", () => {
+    //document.getElementById("outputPhrase").value = generateHitResult();
+    document.getElementById("outputHitResult").innerText = generateHitResult();
+});
+
+document.getElementById("generateSemiPreciousGems").addEventListener("click", () => {
+    //document.getElementById("outputPhrase").value = generateHitResult();
+    document.getElementById("outputSemiPreciousGems").innerText = generateSemiPreciousGem();
 });
 
 let specialSymbolList;
@@ -40,14 +46,62 @@ const hitResultTable = [
     { number: 28, result: "Leg severed, game master will determine which one" },
     { number: 29, result: "Spinal cord severed, crippled for life" },
     { number: 30, result: "Instant death, skull has been crushed, DM says Ha, ha, ha" },
-]
+];
+
+const semiPreciousGemsTable = [
+    "Hematite - smoky black",
+    "Rhodochrosite - pink",
+    "Spodumene - green",
+    "Obsidian - black",
+    "Prase - dull green", //5
+    "Chalcedony - white to gray to black",
+    "Smoky Quartz - pale smoky yellow to jet black",
+    "Rock Crystal - colorless",
+    "Sardonyx - red and white bands",
+    "Onyx - black and white bands", //10
+    "Jasper - dull yellow, red or brown",
+    "Bloodstone - green with red specks",
+    "Jet - opaque black",
+    "Sard - brownish",
+    "Carnelian - clear red", //15
+    "Agate - banded with various colors",
+    "Moonstone - tinted blue",
+    "Lapis Lazuli - blue/purple",
+    "Turquoise - blue/green",
+    "Rhodonite - pink", //20
+    "Malachite - alternating greenish streaks",
+    "Spinal - red to green",
+    "Chrysoberyl - yellow to green",
+    "Zircon - colorless to blue",
+    "Black Tourmaline - dull black", //25
+    "Lt. Brown Tourmaline - sandy colored",
+    "Yellow Tourmaline - opaque yellow",
+    "Citrine - pale yellow",
+    "Yellow Quartz - dull yellow",
+    "Topaz - white to straw yellow", //30
+];
 
 function getRandomInt(max) {
     return Math.floor(Math.random() * Math.floor(max));
 }
 
+function formatResult(hitResultIndex, hitResultText) {
+    let resultString = `${hitResultIndex}: ${hitResultText}`;
+
+    return resultString;
+}
+
 function generateHitResult() {
     const hitResultIndex = getRandomInt(hitResultTable.length);
 
-    return hitResultTable[hitResultIndex].result;
+    //return hitResultTable[hitResultIndex].result;
+    return formatResult(hitResultIndex, hitResultTable[hitResultIndex].result);
+}
+
+function generateSemiPreciousGem() {
+    const hitResultIndex = getRandomInt(semiPreciousGemsTable.length);
+
+    let resultString = formatResult(hitResultIndex, semiPreciousGemsTable[hitResultIndex]);
+    //return hitResultIndex + ": " + hitResultTable[hitResultIndex].result;
+    return resultString;
 }
