@@ -4,14 +4,17 @@ const CHAR_LIMIT_LOWER = 4;
 const CHAR_LIMIT_UPPER = 8;
 
 document.getElementById("generateHitResult").addEventListener("click", () => {
-    //document.getElementById("outputPhrase").value = generateHitResult();
     document.getElementById("outputHitResult").innerText = generateHitResult();
 });
 
 document.getElementById("generateSemiPreciousGems").addEventListener("click", () => {
-    //document.getElementById("outputPhrase").value = generateHitResult();
     document.getElementById("outputSemiPreciousGems").innerText = generateSemiPreciousGem();
 });
+
+document.getElementById("generateSemiPreciousGemValues").addEventListener("click", () => {
+    document.getElementById("outputSemiPreciousGemValues").innerText = generateSemiPreciousGemValues();
+});
+
 
 let specialSymbolList;
 
@@ -81,6 +84,39 @@ const semiPreciousGemsTable = [
     "Topaz - white to straw yellow", //30
 ];
 
+const semiPreciousGemstoneValueTable = [
+    "10",
+    "20",
+    "30",
+    "40",
+    "50",
+    "60",
+    "70",
+    "80",
+    "90",
+    "100",
+    "120",
+    "135",
+    "150",
+    "200",
+    "250",
+    "300",
+    "350",
+    "400",
+    "450",
+    "500",
+    "550",
+    "600",
+    "650",
+    "700",
+    "750",
+    "800",
+    "850",
+    "900",
+    "950",
+    "1000",
+];
+
 function getRandomInt(max) {
     return Math.floor(Math.random() * Math.floor(max));
 }
@@ -94,7 +130,6 @@ function formatResult(hitResultIndex, hitResultText) {
 function generateHitResult() {
     const hitResultIndex = getRandomInt(hitResultTable.length);
 
-    //return hitResultTable[hitResultIndex].result;
     return formatResult(hitResultIndex, hitResultTable[hitResultIndex].result);
 }
 
@@ -102,6 +137,13 @@ function generateSemiPreciousGem() {
     const hitResultIndex = getRandomInt(semiPreciousGemsTable.length);
 
     let resultString = formatResult(hitResultIndex, semiPreciousGemsTable[hitResultIndex]);
-    //return hitResultIndex + ": " + hitResultTable[hitResultIndex].result;
     return resultString;
 }
+
+function generateSemiPreciousGemValues() {
+    const hitResultIndex = getRandomInt(semiPreciousGemstoneValueTable.length);
+
+    let resultString = formatResult(hitResultIndex, semiPreciousGemstoneValueTable[hitResultIndex]);
+    return resultString + " gp";
+}
+

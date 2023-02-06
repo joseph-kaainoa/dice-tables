@@ -2,4 +2,6 @@
 
 Generates various results for dice tables.
 
-Hit Result Table
+* Critical Hit Results table
+* Semi-Precious Gemstones table
+* Semi-Precious Gemstone Values table
